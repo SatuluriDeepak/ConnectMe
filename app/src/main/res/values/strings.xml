@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">BoostUp</string>
+    <string name="forget_password"><u>Forget Password ?</u></string>
+    <string name="login"><u>Login</u></string>
+
+    <string name="user_name"><u>Deepak Satuluri</u></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="company_login"><u>Company Login</u></string>
+    <string name="registration_your_account"><u>Register your Account</u></string>
+    <string name="title_activity_settings2">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="sathulurideepak4_gmail_com"><u>sathulurideepak4@gmail.com</u></string>
+    <string name="influencer_login"><u>Influencer Login</u></string>
+</resources>

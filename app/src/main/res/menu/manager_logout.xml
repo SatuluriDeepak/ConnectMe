@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/out_menu"
+        android:title="Logout"/>
+    <item android:id="@+id/search"
+        android:icon="@drawable/search_bar"
+        app:showAsAction="always"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView" />
+    <item android:id="@+id/sort"
+        android:title="Sort"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/youtubesort"
+                android:title="Youtube"/>
+            <item android:id="@+id/instasort"
+                android:title="Instagram"/>
+            <item android:id="@+id/ticktoksort"
+                android:title="Ticktock"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"/>
+</menu>
