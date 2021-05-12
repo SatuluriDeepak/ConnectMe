@@ -54,7 +54,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 
 import static android.app.Activity.RESULT_OK;
@@ -202,7 +201,7 @@ public class ProfileEmailFragment extends Fragment {
             }
         });
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showEditProfile();
@@ -367,7 +366,7 @@ public class ProfileEmailFragment extends Fragment {
                         }
                         else {
                             value="+91"+value;
-                            DatabaseReference ref=FirebaseDatabase.getInstance().getReference("user").child("Managers");
+                            DatabaseReference ref=FirebaseDatabase.getInstance().getReference("user").child("Manager");
                             ref.orderByChild("Phone").equalTo(value).addValueEventListener(new ValueEventListener(){
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot){

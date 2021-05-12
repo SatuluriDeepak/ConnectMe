@@ -16,38 +16,42 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".InfluencerPostViewActivity"></activity>
+        <activity android:name="Manager.ManagerPostViewActivity" />
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/mainlogo" />
-        <activity android:name=".ManagerSettings" />
+
+        <activity android:name="Manager.ManagerSettings" />
         <activity android:name=".MarkedUsersActivity" />
         <activity android:name=".ContactAdminActivity" />
         <activity android:name=".InfluencerForgetPassword" />
         <activity android:name=".InfluencerVerificationCode" />
-        <activity android:name=".ManagerForgetPassword" />
-        <activity android:name=".ManagerVerificationCode" />
-        <activity android:name=".ManagerVerification" />
+        <activity android:name="Manager.ManagerForgetPassword" />
+        <activity android:name="Manager.ManagerVerificationCode" />
+        <activity android:name="Manager.ManagerVerification" />
         <activity android:name=".InfluencerVerification" />
         <activity android:name=".InfluencerPasswordChange" />
         <activity android:name=".InfluencerSettings" />
         <activity android:name=".ChangePasswordManager" />
         <activity android:name=".Seettings" />
-        <activity android:name=".ManagerProfileDisplay" />
+        <activity android:name="Manager.ManagerProfileDisplay" />
         <activity android:name=".UserProfile" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".ManagerRegister" />
+        <activity android:name="Manager.ManagerRegister" />
         <activity android:name=".InfluenerEmailHome" />
         <activity
             android:name=".InfluencerChatAcitivity"
             android:theme="@style/AppThemeNo" />
         <activity
-            android:name=".ManagerChatActivity"
+            android:name="Manager.ManagerChatActivity"
             android:theme="@style/AppThemeNo" />
         <activity android:name=".InfluencerRegister" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".ManagerLogin" />
+        <activity android:name="Manager.ManagerLogin" />
         <activity android:name=".InfluencerLogin" />
-        <activity android:name=".Manager" />
+        <activity android:name="Manager.Manager" />
         <activity android:name=".Influencer" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -57,7 +61,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name="notifications.FirebaseMessaging"
+        <service
+            android:name="notifications.FirebaseMessaging"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

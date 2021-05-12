@@ -3,14 +3,11 @@ package com.example.boostup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,16 +16,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Locale;
-
-import adapters.AdapterUsers;
-import models.ModelUser;
+import Manager.Manager;
 
 public class Seettings extends AppCompatActivity {
 
@@ -47,7 +37,7 @@ public class Seettings extends AppCompatActivity {
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         uid=user.getUid();
-        databaseReference= firebaseDatabase.getReference("user").child("Managers").child(uid);
+        databaseReference= firebaseDatabase.getReference("user").child("Manager").child(uid);
         actionBar=getSupportActionBar();
         actionBar.setTitle("Settings");
     }
@@ -61,7 +51,7 @@ public class Seettings extends AppCompatActivity {
                     Toast.makeText(Seettings.this, "You cannot change Password", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent i = new Intent(Seettings.this,ChangePasswordManager.class);
+                    Intent i = new Intent(Seettings.this, ChangePasswordManager.class);
                     startActivity(i);
                 }
             }
@@ -108,7 +98,7 @@ public class Seettings extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(Seettings.this,Manager.class);
+        Intent i = new Intent(Seettings.this, Manager.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

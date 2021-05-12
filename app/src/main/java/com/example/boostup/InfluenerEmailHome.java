@@ -8,11 +8,9 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -39,6 +37,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 
+import Manager.manager_posts;
+import Manager.manager_posts_fragment;
 import notifications.Token;
 
 public class InfluenerEmailHome extends AppCompatActivity {
@@ -148,6 +148,13 @@ public class InfluenerEmailHome extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     switch (menuItem.getItemId()){
+                        case R.id.nav_products:
+                            actionBar.setTitle("Dashboard");
+                            InfluencerPostsFragment fragment=new InfluencerPostsFragment();
+                            FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
+                            ft.replace(R.id.content,fragment,"");
+                            ft.commit();
+                            return true;
                         case R.id.nav_profile:
                             actionBar.setTitle("Profile");
                             ProfileEmailFragment fragment2=new ProfileEmailFragment();
@@ -172,6 +179,7 @@ public class InfluenerEmailHome extends AppCompatActivity {
                             ft4.commit();
                             //Settings Fragment
                             return true;
+
 
                     }
                     return false;

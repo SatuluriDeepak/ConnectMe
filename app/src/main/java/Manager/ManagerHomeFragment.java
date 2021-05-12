@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,12 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.boostup.MainActivity;
+import com.example.boostup.R;
+import com.example.boostup.Seettings;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -35,8 +37,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
 
 
 /**
@@ -105,7 +105,7 @@ public class ManagerHomeFragment extends Fragment {
                         DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 signOut();
-                                Intent i = new Intent(getActivity(),MainActivity.class);
+                                Intent i = new Intent(getActivity(), MainActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);
                                 getActivity().finish();
@@ -138,7 +138,7 @@ public class ManagerHomeFragment extends Fragment {
             startActivity(i);
         }
         if(id == R.id.settings){
-            Intent i = new Intent(getActivity(),Seettings.class);
+            Intent i = new Intent(getActivity(), Seettings.class);
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);

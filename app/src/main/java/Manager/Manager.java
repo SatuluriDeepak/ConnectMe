@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,6 +17,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.boostup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -76,7 +77,7 @@ public class Manager extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         firebaseDatabase= FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("user").child("Manager");
+        databaseReference=firebaseDatabase.getReference("user").child("Managers");
 
         CheckUserStatus();
         updateToken(FirebaseInstanceId.getInstance().getToken());

@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -23,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.boostup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -41,10 +41,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.StatementEvent;
-
 import adapters.AdapterChatList;
-import adapters.AdapterInfluencerChatList;
 import models.ModelChat;
 import models.ModelChatList;
 import models.ModelUser;

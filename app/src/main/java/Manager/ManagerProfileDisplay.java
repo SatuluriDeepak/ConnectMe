@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.boostup.InfluencerChatAcitivity;
+import com.example.boostup.InfluenerEmailHome;
+import com.example.boostup.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,12 +54,14 @@ public class ManagerProfileDisplay extends AppCompatActivity {
 
         Intent intent = getIntent();
         message = intent.getStringExtra(sendid);
+        Log.i("error",message);
         getAllUsers();
     }
     private void getAllUsers() {
         // FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("user").child("Managers");
         //Query query=databaseReference.orderByChild("Email").equalTo(user.getEmail());
+
         databaseReference.child(message).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -112,9 +117,9 @@ public class ManagerProfileDisplay extends AppCompatActivity {
     }
 
     public void SendMessaage(View view) {
-        //Intent intent=new Intent(this,InfluencerChatAcitivity.class);
-        //intent.putExtra(senduid,message);
-        //startActivity(intent);
+        Intent intent=new Intent(this, InfluencerChatAcitivity.class);
+        intent.putExtra(senduid,message);
+        startActivity(intent);
     }
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

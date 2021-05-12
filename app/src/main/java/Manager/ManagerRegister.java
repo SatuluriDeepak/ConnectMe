@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.boostup.R;
+import com.example.boostup.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -155,7 +157,7 @@ public class ManagerRegister extends AppCompatActivity {
     }
     public void writeNewUser(String Email, final String UserName, final String Password) {
 
-        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Managers");
+        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Manager");
         dbref.orderByChild("UserName").equalTo(UserName).addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){

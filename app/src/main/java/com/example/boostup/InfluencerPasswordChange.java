@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +23,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
@@ -48,7 +46,7 @@ public class InfluencerPasswordChange extends AppCompatActivity {
         setContentView(R.layout.activity_influencer_password_change);
 
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference= firebaseDatabase.getReference("user").child("Managers");
+        databaseReference= firebaseDatabase.getReference("user").child("Manager");
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         uid=user.getUid();

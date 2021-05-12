@@ -38,7 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import adapters.AdapterChatList;
 import adapters.AdapterInfluencerChatList;
 import models.ModelChat;
 import models.ModelChatList;

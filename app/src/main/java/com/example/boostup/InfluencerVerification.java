@@ -158,7 +158,7 @@ public class InfluencerVerification extends AppCompatActivity {
                 @Override
                 public void onVerificationFailed(@NonNull FirebaseException e) {
                     Toast.makeText(InfluencerVerification.this, "message : "+e, Toast.LENGTH_SHORT).show();
-                    Log.w("activity","Failure "+e.toString());
+                    Log.w("activity",e.toString());
                     progressDialog.dismiss();
 
                 }

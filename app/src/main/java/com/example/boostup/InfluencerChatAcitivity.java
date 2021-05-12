@@ -52,11 +52,8 @@ import adapters.AdapterChat;
 import models.ModelChat;
 import models.ModelUser;
 import notifications.Data;
-import notifications.Respone;
 import notifications.Sender;
 import notifications.Token;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 
 public class InfluencerChatAcitivity extends AppCompatActivity {
@@ -314,7 +311,7 @@ public class InfluencerChatAcitivity extends AppCompatActivity {
                     Token token=ds.getValue(Token.class);
                     Data data= new Data(uid,userName+" :   "+msg1,"New Message",hisUId,R.drawable.mainlogo);
                     Sender sender=new Sender(data,token.getToken());
-
+//Gson - converts java object to json
                     try {
                         JSONObject senderJSONObject =new JSONObject(new Gson().toJson(sender));
                         JsonObjectRequest jsonObjectRequest= new JsonObjectRequest("https://fcm.googleapis.com/fcm/send", senderJSONObject,

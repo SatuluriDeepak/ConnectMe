@@ -1,4 +1,4 @@
-package Manager;
+package com.example.boostup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.boostup.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+import Manager.ManagerSettings;
 
 public class ChangePasswordManager extends AppCompatActivity {
     TextInputEditText rpassId,rrpassId,rprevpassword;

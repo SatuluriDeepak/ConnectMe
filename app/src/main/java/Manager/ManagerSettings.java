@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,6 +13,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+
+import com.example.boostup.ChangePasswordManager;
+
+import com.example.boostup.MarkedUsersActivity;
+import com.example.boostup.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +48,7 @@ public class ManagerSettings extends AppCompatActivity {
     }
 
     public void markedusers(View view) {
-        Intent i=new Intent(ManagerSettings.this,MarkedUsersActivity.class);
+        Intent i=new Intent(ManagerSettings.this, MarkedUsersActivity.class);
         startActivity(i);
     }
 
@@ -56,7 +61,7 @@ public class ManagerSettings extends AppCompatActivity {
                     Toast.makeText(ManagerSettings.this, "You cannot change Password", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent i = new Intent(ManagerSettings.this,ChangePasswordManager.class);
+                    Intent i = new Intent(ManagerSettings.this, ChangePasswordManager.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
@@ -116,7 +121,7 @@ public class ManagerSettings extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(ManagerSettings.this,Manager.class);
+        Intent i = new Intent(ManagerSettings.this, Manager.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

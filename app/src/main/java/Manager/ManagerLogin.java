@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.boostup.InfluencerLogin;
+import com.example.boostup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -41,6 +43,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+//import Manager;
 
 
 public class ManagerLogin extends AppCompatActivity {
@@ -160,7 +164,7 @@ public class ManagerLogin extends AppCompatActivity {
     }
 
     public void Register(View view) {
-        Intent intent= new Intent(this,ManagerRegister.class);
+        Intent intent= new Intent(this, ManagerRegister.class);
         startActivity(intent);
     }
 
@@ -304,7 +308,6 @@ public class ManagerLogin extends AppCompatActivity {
 
                         firebaseDatabase= FirebaseDatabase.getInstance();
                         databaseReference.child(uid).setValue(hashMap);
-
                         updateUI(user);
                     }
                     pd.dismiss();
@@ -318,8 +321,6 @@ public class ManagerLogin extends AppCompatActivity {
                                 if(dataSnapshot.getChildrenCount()>0){
                                     //Toast.makeText(ManagerLogin.this, "You are Logged In", Toast.LENGTH_SHORT).show();
                                     pd.dismiss();
-
-
                                     Intent i= new Intent(ManagerLogin.this,Manager.class);
                                     startActivity(i);
 
@@ -388,7 +389,7 @@ public class ManagerLogin extends AppCompatActivity {
     }
 
     public void ForgetPassword(View view) {
-        Intent intent=new Intent(this,ManagerVerification.class);
+        Intent intent=new Intent(this, ManagerVerification.class);
         startActivity(intent);
     }
     public static boolean isNetworkAvailable(Context context) {
@@ -426,7 +427,7 @@ public class ManagerLogin extends AppCompatActivity {
     private void CheckUserStatus() {
         FirebaseUser user=mAuth.getCurrentUser();
         if(user!=null){
-            Intent i= new Intent(ManagerLogin.this,Manager.class);
+            Intent i= new Intent(ManagerLogin.this, Manager.class);
             startActivity(i);
 
         }

@@ -3,16 +3,11 @@ package com.example.boostup;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.LayerDrawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -22,7 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,8 +35,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import Manager.ManagerChatActivity;
+import Manager.Manager;
 import adapters.AdapterAddUsers;
-import adapters.AdapterInfluencerChatList;
 import models.ModelChatList;
 import models.ModelUser;
 
@@ -52,7 +49,6 @@ public class UserProfile extends AppCompatActivity {
     private List<ModelUser>userList;
     private AdapterAddUsers adapterChatList;
     Context context;
-    ActionBar actionBar;
     String phn,sendid,senduid,message,uid,number,sendemail;
     TextView pins,ptic,pyou,pname,pinsmoney,pyoumoney,ptickmoney,pphone,pemail;
     ImageView puser;
@@ -62,6 +58,8 @@ public class UserProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         uid=user.getUid();
@@ -76,8 +74,7 @@ public class UserProfile extends AppCompatActivity {
         pphone=findViewById(R.id.pphone);
         pemail=findViewById(R.id.pemail);
 
-        actionBar=getSupportActionBar();
-        actionBar.setTitle("User Profile");
+
         Intent intent = getIntent();
         message = intent.getStringExtra(sendid);
         chatListList=new ArrayList<>();
@@ -135,7 +132,7 @@ public class UserProfile extends AppCompatActivity {
     }
 
     public void SendMessaage(View view) {
-        Intent intent=new Intent(this,ManagerChatActivity.class);
+        Intent intent=new Intent(this, ManagerChatActivity.class);
         intent.putExtra(senduid,message);
         startActivity(intent);
 
@@ -161,7 +158,7 @@ public class UserProfile extends AppCompatActivity {
         CheckOnlineStatus("online");
     }
     private void CheckOnlineStatus(String status) {
-        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Managers").child(uid);
+        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Manager").child(uid);
         HashMap<String,Object> hashMap=new HashMap<>();
         hashMap.put("OnlineStatus",status);
         dbref.updateChildren(hashMap);

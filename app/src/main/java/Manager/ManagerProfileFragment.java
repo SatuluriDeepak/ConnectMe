@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -32,6 +32,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.boostup.MainActivity;
+import com.example.boostup.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -207,7 +209,7 @@ public class ManagerProfileFragment extends Fragment {
                     DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             signOut();
-                            Intent i = new Intent(getActivity(),MainActivity.class);
+                            Intent i = new Intent(getActivity(), MainActivity.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i);
                             getActivity().finish();
@@ -243,7 +245,7 @@ public class ManagerProfileFragment extends Fragment {
                         }
                         else {
                             value="+91"+value;
-                            DatabaseReference ref=FirebaseDatabase.getInstance().getReference("user").child("Managers");
+                            DatabaseReference ref=FirebaseDatabase.getInstance().getReference("user").child("Manager");
                             ref.orderByChild("Phone").equalTo(value).addValueEventListener(new ValueEventListener(){
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot){

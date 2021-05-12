@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.boostup.ManagerChatActivity;
+import Manager.ManagerChatActivity;
 import com.example.boostup.R;
 import com.squareup.picasso.Picasso;
 

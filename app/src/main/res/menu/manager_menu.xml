@@ -5,6 +5,10 @@
         android:title="Profile"
         android:icon="@drawable/ic_profile_blank"/>
     <item
+        android:id="@+id/nav_products"
+        android:title="Dashboard"
+        android:icon="@drawable/bg_posts"/>
+    <item
         android:id="@+id/nav_chat"
         android:title="Chats"
         android:icon="@drawable/chat_bg"/>

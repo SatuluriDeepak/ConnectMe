@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.boostup.ContactAdminActivity;
+import com.example.boostup.R;
+import com.example.boostup.User;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
@@ -32,7 +33,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class ManagerVerification extends AppCompatActivity {
@@ -147,7 +147,7 @@ public class ManagerVerification extends AppCompatActivity {
                 @Override
                 public void onVerificationFailed(@NonNull FirebaseException e) {
                     Toast.makeText(ManagerVerification.this, "message : "+e, Toast.LENGTH_SHORT).show();
-                    Log.w("activity","Failure "+e.toString());
+                    Log.i("error",e.toString());
                     progressDialog.dismiss();
 
                 }
@@ -161,7 +161,7 @@ public class ManagerVerification extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
         if(id==R.id.out_menu){
-            Intent intent=new Intent(ManagerVerification.this,ContactAdminActivity.class);
+            Intent intent=new Intent(ManagerVerification.this, ContactAdminActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -170,7 +170,7 @@ public class ManagerVerification extends AppCompatActivity {
 
 
     private void checkExits() {
-        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Managers");
+        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Manager");
         dbref.orderByChild("Phone").equalTo(phone).addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){

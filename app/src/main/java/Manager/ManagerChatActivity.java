@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,6 +27,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.boostup.R;
+import com.example.boostup.UserProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,11 +54,8 @@ import adapters.AdapterChat;
 import models.ModelChat;
 import models.ModelUser;
 import notifications.Data;
-import notifications.Respone;
 import notifications.Sender;
 import notifications.Token;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 
 public class ManagerChatActivity extends AppCompatActivity {
@@ -100,8 +99,10 @@ public class ManagerChatActivity extends AppCompatActivity {
 
         Toolbar mToolbar=findViewById(R.id.mToolbar);
         mLayoutManager = new LinearLayoutManager(this);
+
         setSupportActionBar(mToolbar);
         mToolbar.setTitle("");
+
         mprofileIv=findViewById(R.id.mprofileIv);
         mchatmessage_recyle=findViewById(R.id.mchatmessage_recyle);
         mnameid=findViewById(R.id.mnameid);
@@ -192,7 +193,7 @@ public class ManagerChatActivity extends AppCompatActivity {
     }
 
     public void GoBack(View view) {
-        Intent intent= new Intent(this,UserProfile.class);
+        Intent intent= new Intent(this, UserProfile.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(send,message);
         startActivity(intent);
@@ -248,7 +249,7 @@ public class ManagerChatActivity extends AppCompatActivity {
         hashMap.put("SeenStatus",false);
         db1.child("ManagerChats").push().setValue(hashMap);
         mEditMessage.setText("");
-        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Managers").child(user.getUid());
+        DatabaseReference dbref=FirebaseDatabase.getInstance().getReference("user").child("Manager").child(user.getUid());
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot ds) {
@@ -367,7 +368,7 @@ public class ManagerChatActivity extends AppCompatActivity {
 
     }
     private void CheckOnlineStatus(String status) {
-        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Managers").child(uid);
+        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Manager").child(uid);
         HashMap<String,Object> hashMap=new HashMap<>();
         hashMap.put("OnlineStatus",status);
         dbref.updateChildren(hashMap);

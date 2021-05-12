@@ -11,8 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.boostup.InfluencerChatAcitivity;
-import com.example.boostup.ManagerProfileDisplay;
+import Manager.ManagerProfileDisplay;
 import com.example.boostup.R;
 import com.squareup.picasso.Picasso;
 
