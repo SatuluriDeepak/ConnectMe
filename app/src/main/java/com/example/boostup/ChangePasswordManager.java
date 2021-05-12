@@ -1,4 +1,4 @@
-package com.example.boostup;
+package Manager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.boostup.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -23,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
@@ -45,7 +45,7 @@ public class ChangePasswordManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password_manager);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference= firebaseDatabase.getReference("user").child("Managers");
+        databaseReference= firebaseDatabase.getReference("user").child("Manager");
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         uid=user.getUid();
@@ -174,7 +174,7 @@ public class ChangePasswordManager extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(ChangePasswordManager.this,ManagerSettings.class);
+        Intent i = new Intent(ChangePasswordManager.this, ManagerSettings.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }

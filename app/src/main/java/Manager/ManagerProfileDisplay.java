@@ -112,9 +112,9 @@ public class ManagerProfileDisplay extends AppCompatActivity {
     }
 
     public void SendMessaage(View view) {
-        Intent intent=new Intent(this,InfluencerChatAcitivity.class);
-        intent.putExtra(senduid,message);
-        startActivity(intent);
+        //Intent intent=new Intent(this,InfluencerChatAcitivity.class);
+        //intent.putExtra(senduid,message);
+        //startActivity(intent);
     }
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

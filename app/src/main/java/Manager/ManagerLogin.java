@@ -304,6 +304,7 @@ public class ManagerLogin extends AppCompatActivity {
 
                         firebaseDatabase= FirebaseDatabase.getInstance();
                         databaseReference.child(uid).setValue(hashMap);
+
                         updateUI(user);
                     }
                     pd.dismiss();
@@ -317,6 +318,8 @@ public class ManagerLogin extends AppCompatActivity {
                                 if(dataSnapshot.getChildrenCount()>0){
                                     //Toast.makeText(ManagerLogin.this, "You are Logged In", Toast.LENGTH_SHORT).show();
                                     pd.dismiss();
+
+
                                     Intent i= new Intent(ManagerLogin.this,Manager.class);
                                     startActivity(i);
 

@@ -1,6 +1,5 @@
 package com.example.boostup;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,12 +26,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
@@ -66,6 +61,7 @@ public class Manager extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(selectedListener);
 
         actionBar.setTitle("Home");
+
         ManagerHomeFragment fragment1=new ManagerHomeFragment();
         FragmentTransaction ft1= getSupportFragmentManager().beginTransaction();
         ft1.replace(R.id.content,fragment1,"");
@@ -80,7 +76,7 @@ public class Manager extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         firebaseDatabase= FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("user").child("Manangers");
+        databaseReference=firebaseDatabase.getReference("user").child("Manager");
 
         CheckUserStatus();
         updateToken(FirebaseInstanceId.getInstance().getToken());
@@ -149,6 +145,14 @@ public class Manager extends AppCompatActivity {
                             ft2.commit();
                             //Profile Fragment
                             return true;
+                        case R.id.nav_products:
+                            actionBar.setTitle("Dashboard");
+                            manager_posts_fragment fragment4=new manager_posts_fragment();
+                            FragmentTransaction ft4= getSupportFragmentManager().beginTransaction();
+                            ft4.replace(R.id.content,fragment4,"");
+                            ft4.commit();
+                            //Profile Fragment
+                            return true;
                         case R.id.nav_chat:
                             actionBar.setTitle("Chats");
                             ManagerChatFragment fragment3=new ManagerChatFragment();
@@ -159,10 +163,10 @@ public class Manager extends AppCompatActivity {
                             return true;
                         case R.id.users_display:
                             actionBar.setTitle("Users");
-                            ManagerUsersFragment fragment4=new ManagerUsersFragment();
-                            FragmentTransaction ft4= getSupportFragmentManager().beginTransaction();
-                            ft4.replace(R.id.content,fragment4,"");
-                            ft4.commit();
+                            ManagerUsersFragment fragment5=new ManagerUsersFragment();
+                            FragmentTransaction ft5= getSupportFragmentManager().beginTransaction();
+                            ft5.replace(R.id.content,fragment5,"");
+                            ft5.commit();
                             //Settings Fragment
                             return true;
                     }
@@ -192,7 +196,7 @@ public class Manager extends AppCompatActivity {
         CheckOnlineStatus("online");
     }
     private void CheckOnlineStatus(String status) {
-        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Managers").child(uid);
+        DatabaseReference dbref= FirebaseDatabase.getInstance().getReference("user").child("Manager").child(uid);
         Log.i("Userid",uid);
         HashMap<String,Object> hashMap=new HashMap<>();
         hashMap.put("OnlineStatus",status);
